@@ -11,7 +11,6 @@ function getStore() {
     models = [],
     middlewares = [],
     plugins = [],
-    afterStoreCallback,
   } = this.props;
   const sagaModel = getSagaModel(
     history,
@@ -22,8 +21,6 @@ function getStore() {
     plugins
   );
   const store = sagaModel.store();
-  //获取到store后的回到函数
-  afterStoreCallback && afterStoreCallback(store);
   return store;
 }
 
@@ -33,7 +30,6 @@ function getStore() {
  * @prop { array } enhancers redux enhancers
  * @prop { object } reducers redux reducers (传进来后会被combineReducers)
  * @prop { any } preloadedState redux preloadedState
- * @prop { function } afterStoreCallback 获取到store后的回到函数，这里运行与render函数前面
  */
 export default class ModelProvider extends React.Component {
   static propTypes = {
@@ -42,7 +38,6 @@ export default class ModelProvider extends React.Component {
     preloadedState: PropTypes.any,
     enhancers: PropTypes.array,
     reducers: PropTypes.object,
-    afterStoreCallback: PropTypes.func,
   };
   static childContextTypes = {
     sagaStore: PropTypes.object,

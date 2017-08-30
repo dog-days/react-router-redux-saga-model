@@ -1,6 +1,6 @@
 {
   "name": "react-router-redux-saga-model",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "react-router-redux-saga-model",
   "main": "libs/index.js",
   "scripts": {
@@ -39,9 +39,9 @@
   },
   "homepage": "https://github.com/dog-days/react-router-redux-saga-model#readme",
   "dependencies": {
-    "redux-saga-model": "^0.1.2",
+    "redux-saga-model": "^0.1.4",
     "prop-types": "^15.5.10",
-    "react-router-redux-provider": "0.0.8"
+    "react-router-redux-provider": "0.0.9"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -76,7 +76,8 @@
       "stage-0"
     ],
     "plugins": [
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
+      "transform-runtime"
     ],
     "env": {
       "development": {
@@ -87,7 +88,8 @@
       },
       "default": {
         "plugins": [
-          "transform-decorators-legacy"
+          "transform-decorators-legacy",
+          "transform-runtime"
         ],
         "presets": [
           "react",
@@ -97,7 +99,8 @@
       },
       "es": {
         "plugins": [
-          "transform-decorators-legacy"
+          "transform-decorators-legacy",
+          "transform-runtime"
         ],
         "presets": [
           "react",

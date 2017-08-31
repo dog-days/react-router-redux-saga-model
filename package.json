@@ -4,6 +4,7 @@
   "description": "react-router-redux-saga-model",
   "main": "libs/index.js",
   "scripts": {
+    "build-publish": "npm run build && npm publish",
     "build": "npm run build-es && npm run build-default",
     "build-es": "cross-env BABEL_ENV=es babel ./src -d es",
     "build-default": "cross-env BABEL_ENV=default babel ./src -d libs",
@@ -39,9 +40,9 @@
   },
   "homepage": "https://github.com/dog-days/react-router-redux-saga-model#readme",
   "dependencies": {
-    "redux-saga-model": "^0.1.5",
+    "redux-saga-model": "^0.1.7",
     "prop-types": "^15.5.10",
-    "react-router-redux-provider": "0.0.9"
+    "react-router-redux-provider": "0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

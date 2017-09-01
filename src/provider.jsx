@@ -11,6 +11,7 @@ function getStore() {
     models = [],
     middlewares = [],
     plugins = [],
+    production = true,
   } = this.props;
   const sagaModel = getSagaModel(
     history,
@@ -18,7 +19,8 @@ function getStore() {
     preloadedState,
     models,
     middlewares,
-    plugins
+    plugins,
+    !production
   );
   const store = sagaModel.store();
   return store;
@@ -30,6 +32,7 @@ function getStore() {
  * @prop { array } enhancers redux enhancers
  * @prop { object } reducers redux reducers (传进来后会被combineReducers)
  * @prop { any } preloadedState redux preloadedState
+ * @prop { boolean } production 是否是生产环境，默认为true
  */
 export default class ModelProvider extends React.Component {
   static propTypes = {
@@ -38,6 +41,7 @@ export default class ModelProvider extends React.Component {
     preloadedState: PropTypes.any,
     enhancers: PropTypes.array,
     reducers: PropTypes.object,
+    production: PropTypes.bool,
   };
   static childContextTypes = {
     sagaStore: PropTypes.object,
@@ -51,10 +55,10 @@ export default class ModelProvider extends React.Component {
   state = {};
   store = getStore.bind(this)();
   render() {
-    const { history, children } = this.props;
+    const { history, children, production } = this.props;
     const store = this.store;
     return (
-      <Provider store={store} history={history}>
+      <Provider store={store} history={history} production={production}>
         {children}
       </Provider>
     );

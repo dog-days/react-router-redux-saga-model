@@ -5,7 +5,7 @@ import Test from './test';
 
 export default function container(props) {
   return (
-    <Provider>
+    <Provider production={process.env.NODE_ENV === 'production'}>
       <Link to="/">主页</Link>
       <br />
       <Link to="/about">关于</Link>

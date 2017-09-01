@@ -15,13 +15,15 @@ export default function getSagaModel(
   preloadedState,
   models = [],
   middlewares = [],
-  plugins = []
+  plugins = [],
+  openReduxDevTools
 ) {
   const initialState = preloadedState;
   const initialReducer = {
     ...reducers,
     routing,
   };
+  console.log(openReduxDevTools);
   const initialMiddleware = [routerMiddleware(history), ...middlewares];
   const initialModels = models;
   const sagaModel = new SagaModel({
@@ -30,6 +32,7 @@ export default function getSagaModel(
     initialMiddleware,
     initialModels,
     history,
+    openReduxDevTools,
   });
   plugins.forEach(sagaModel.use.bind(sagaModel));
   return sagaModel;

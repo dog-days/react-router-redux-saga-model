@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/dog-days/react-router-redux-saga-model#readme",
   "dependencies": {
-    "redux-saga-model": "^0.1.9",
+    "redux-saga-model": "^0.2.1",
     "prop-types": "^15.5.10",
     "react-router-redux-provider": "0.1.3"
   },

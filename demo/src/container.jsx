@@ -22,7 +22,7 @@ export default function container(props) {
           return <div>about</div>;
         }}
       />
-      <Test />
+      <Test hot={props.hot} />
     </Provider>
   );
 }

@@ -3,10 +3,15 @@ import { render } from 'react-dom';
 import Container from './container';
 
 function randomKey() {
-  return Math.random().toString(36).substring(7).split('').join('.');
+  return Math.random()
+    .toString(36)
+    .substring(7)
+    .split('')
+    .join('.');
 }
 
 function renderApp(hot) {
+  console.log('hot', hot);
   render(<Container hot={hot} />, document.getElementById('root'));
 }
 renderApp();
